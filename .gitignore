@@ -2,7 +2,5 @@
 .DS_Store
 env
 __pycache__
-*/data/processed/*
-!*/data/processed/.gitkeep
-*/data/raw/*
-!*/data/processed/.gitkeep
+*/data/*
+!*/data/.gitkeep
