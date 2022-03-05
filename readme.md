@@ -183,7 +183,7 @@ Now let's import another library at the top of the page.
 from bs4 import BeautifulSoup
 ```
 
-Then create a new function, `parse_page`, that will take that text that was returned and use BeautifulSoup to parse the html. We'll work through this step by step, but this will be the final function.
+Then create a new function, `parse_page`, that will take that text that was returned and use BeautifulSoup to parse the html. (We'll work through this step by step in class).
 
 ```
 def parse_page(html_doc):
@@ -211,3 +211,42 @@ Below where you declared your `text` variable, pass `text` into parse_page.
     data = parse_page(text)
     print(data)
 ```
+
+Excellent! Now we have a list of data; all we need to do is write that to a csv file.
+
+
+## 4: Writing data to a csv
+
+This is the last, quick step before we finish our first scraper. Open the `write_to_csv.py` file and, at the top, import our fetching and parsing functions and another new library, called `csv`, which will let us easily read and write comma-separated value files.
+
+Below the `if` statement, let's call our first two functions once again ()
+
+```
+    text = fetch_page("https://nicar22-scraping.herokuapp.com/simpletable/")
+    data = parse_page(text)
+```
+
+We're going to write a new function using that csv library that will take as arguments a list of data and a filename and write out that data to the file.
+
+```
+def write_to_csv(data, outfile):
+    f = open(outfile, "w")
+    writer = csv.writer(f)
+    for row in data:
+        writer.writerow(row)
+    f.close
+```
+
+Nice! Now, just call that function at the bottom of your script.
+
+```
+    write_to_csv(data, "data/results.csv")
+```
+
+Nice job! You just wrote your first scraper and saved out the data in a format that you can use in your reporting.
+
+## 5: Adding complexity.
+
+Next, let's tackle a slightly more complex example. Click on over to "Results form" on the site, and 
+
+We're going to work through this in class, but you can find our final version of this script in the `scrapers-solutions/fetch_form_pages.py`.

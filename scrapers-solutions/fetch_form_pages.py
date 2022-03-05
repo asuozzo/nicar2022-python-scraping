@@ -1,7 +1,7 @@
 from fetch_page import fetch_page
-from bs4 import BeautifulSoup
 from parse_page import parse_page
 from write_to_csv import write_to_csv
+from bs4 import BeautifulSoup
 
 def get_dropdown_options(html):
     soup = BeautifulSoup(html,'html.parser')
